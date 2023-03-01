@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>
+        Modelling Candy Checkboxes
+    </title>
+ </head>
+<body>
+
+<h2>Konakanchi Sai Sucharitha chooses candy</h2>
+
+
+<form>
+    <input type="checkbox" id="chocolate" name="ADD ON1"   
+      value="True">
+    <label for="cb1_cheese">Dark Chocolate</label></br>
+  
+    <input type="checkbox" id="dryFruits" name="ADD ON2" 
+       value="True">
+    <label for="cb1_olive">Nuts</label></br>
+  
+    <input type="checkbox" id="chewingGam" name="ADD ON3"   
+       value="False">
+    <label for="cb1_onion">Chewy</label></br>
+
+    <input type="button" class="btn btn-primary" onclick="selectBox()" value="Select a box">
+  </form>
+
+  <p id="resultval">Result will be displayed</p>
+
+  <div class="form-group">
+    <form>
+      <label for="form1">Enter the size </label>
+      <input type ="text" id="size" value="size" name="form1" autofocus> <br>
+  
+      <label for="form2">Enter price </label>
+      <input type ="text" id="price" name="form2" autofocus> <br>
+  
+      <input type="button" class="btn btn-primary" onclick="updateBox()" value="Update the box">
+  </form>
+  </div>
+  <p id="resultvalnew">This text will be replaced </p>
+
+<script> 
+my_candy_box={};
+   function selectBox(){
+    my_candy_box ={};
+    my_candy_box.dark=document.getElementById("chocolate").checked;
+    my_candy_box.nuts=document.getElementById("dryFruits").checked;
+    my_candy_box.chewy=document.getElementById("chewingGum").checked;
+    document.getElementById("resultval").innerHTML=JSON.stringify(my_candy_box);
+    
+}
+function updateBox(){
+   
+   my_candy_box.size=document.getElementById("size").value;
+   my_candy_box.price=document.getElementById("price").value;
+   
+   document.getElementById("resultvalnew").innerHTML=JSON.stringify(my_candy_box);
+   
+}
+</script>
+
+</body>
+</html> 
