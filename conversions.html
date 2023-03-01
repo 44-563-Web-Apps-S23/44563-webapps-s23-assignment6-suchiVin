@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<title>Conversion using Looping computation</title>
+
+<body>
+
+    <h2>Konakanchi Sai Sucharitha shows currency conversions</h2>
+
+    <form>
+        <label for="form1_age">Enter base amount </label>
+        <input type="number" id="basevalue" name="form1_age" min=10 max=50 step=2 value=50> <br>
+
+        <label for="form1_nick">Enter the conversion rate </label>
+        <input type="number" id="convvalue" name="form1_nick" autofocus value=35><br>
+
+        <input type="button" onclick="convert()" value="Show conversions">
+    </form>
+
+
+    <p id="result">Shows the conversion Result</p>
+
+    <script>
+        var toShow = '';
+        function convert() {
+            toShow = '';
+            var base = document.getElementById("basevalue").value
+            var conv = document.getElementById("convvalue").value
+            var base1 = base;
+            for (let i = 1; i <= 5; i++) {
+                console.log(2 *= i);
+
+                toShow = toShow + base + ' is ' + Math.round(base * conv * 100) / 100 + '; ';
+                base = base1 * (2 ** i);
+            }
+            document.getElementById("result").innerHTML = 'Conversions are: ' + toShow;
+
+        }
+    </script>
+    <form>
+        <div class="form-group">
+            <input type="radio" name="action" id="mean" name="average" value="mean">
+            <label for="mean">Average</label><br>
+            <input type="radio" name="action" id="max" name="max" value="maximum">
+            <label for="max">Max</label><br>
+            <input type="radio" name="action" id="min" name="min" value="minimum">
+            <label for="min">Min</label><br>
+
+    </form>
+
+            <input type="button" class="btn btn-primary" onclick="chooseOp()" value="Get values from above">
+            <p id="result1">Shows radio buttons </p>
+        </div>    
+
+
+    <script>
+        function chooseOp() {
+            var base = document.getElementById("basevalue").value;
+            var conv = document.getElementById("convvalue").value;
+            var operation = document.querySelector('input[name="action"]:checked').value;
+            console.log('operation', operation);
+            console.log('conv', conv);
+            var base1 = base;
+            if (operation == 'minimum') {
+                document.getElementById("result1").innerHTML = 'min of ' + base + ' and ' + conv + ' is ' + Math.min(base, conv);
+            }
+            else if (operation == 'maximum') {
+                document.getElementById("result1").innerHTML = 'max of ' + base + ' and ' + conv + ' is ' + Math.max(base, conv);
+            } else if (operation == 'mean') {
+                document.getElementById("result1").innerHTML = 'average of ' + base + ' and ' + conv + ' is ' + (parseInt(base) + parseInt(conv)) / 2;
+            }
+            document.getElementById("result").innerHTML = 'Conversions are: ' + toShow;
+        }
+    </script>
+
+
+</body>
+
+</html>
