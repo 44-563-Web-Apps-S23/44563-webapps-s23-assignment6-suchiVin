@@ -26,7 +26,7 @@
     <input type="button" class="btn btn-primary" onclick="selectBox()" value="Select a box">
   </form>
 
-  <p id="resultval">Result will be displayed</p>
+  <p id="result">Result will be displayed</p>
 
   <div class="form-group">
     <form>
@@ -39,7 +39,7 @@
       <input type="button" class="btn btn-primary" onclick="updateBox()" value="Update the box">
   </form>
   </div>
-  <p id="resultvalnew">This text will be replaced </p>
+  <p id="newresult">This text will be replaced </p>
 
 <script> 
 my_candy_box={};
@@ -48,7 +48,7 @@ my_candy_box={};
     my_candy_box.dark=document.getElementById("chocolate").checked;
     my_candy_box.nuts=document.getElementById("dryFruits").checked;
     my_candy_box.chewy=document.getElementById("chewingGum").checked;
-    document.getElementById("resultval").innerHTML=JSON.stringify(my_candy_box);
+    document.getElementById("result").innerHTML=JSON.stringify(my_candy_box);
     
 }
 function updateBox(){
@@ -56,7 +56,7 @@ function updateBox(){
    my_candy_box.size=document.getElementById("size").value;
    my_candy_box.price=document.getElementById("price").value;
    
-   document.getElementById("resultvalnew").innerHTML=JSON.stringify(my_candy_box);
+   document.getElementById("newresult").innerHTML=JSON.stringify(my_candy_box);
    
 }
 </script>
